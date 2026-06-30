@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Rock Paper Scissors</title>
+  <meta name="description" content="Support, FAQ and contact for the Rock Paper Scissors iOS app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0A1A;
+      --surface:   #12122A;
+      --border:    rgba(255,255,255,0.07);
+      --purple:    #A78BFA;
+      --blue:      #60A5FA;
+      --pink:      #F472B6;
+      --gold:      #FBBF24;
+      --text:      #E0E0FF;
+      --muted:     #6B6B8A;
+      --radius:    14px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 64px 40px 48px;
+      max-width: 900px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .page-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 40px 100px;
+    }
+
+    /* QUICK ACTIONS */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 64px;
+    }
+
+    .quick-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .quick-card:hover {
+      border-color: rgba(167,139,250,0.3);
+      transform: translateY(-2px);
+    }
+
+    .quick-icon { font-size: 1.6rem; }
+
+    .quick-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .quick-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 32px;
+    }
+
+    .faq-group {
+      margin-bottom: 56px;
+    }
+
+    .faq-group-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4px;
+    }
+
+    details {
+      border-bottom: 1px solid var(--border);
+    }
+
+    summary {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 18px 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      user-select: none;
+      color: var(--text);
+      gap: 16px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '+';
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details[open] summary {
+      color: var(--purple);
+    }
+
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #B0B0CC;
+      padding: 0 4px 20px;
+      line-height: 1.7;
+    }
+
+    .faq-answer p { margin-bottom: 10px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-answer strong { color: var(--text); }
+    .faq-answer a { color: var(--purple); }
+
+    /* CONTACT */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px;
+      margin-top: 56px;
+    }
+
+    .contact-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 460px;
+    }
+
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .contact-option-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+
+    .contact-option-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .contact-option-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .contact-option a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      nav, .page-hero, .content, footer { padding-left: 20px; padding-right: 20px; }
+      .quick-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">RPS</a>
+    <a href="index.html" class="nav-back">← Back to home</a>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-eyebrow">Help</p>
+    <h1 class="page-title">Support</h1>
+    <p class="page-sub">Something not working? A question about how the game works? You're in the right place.</p>
+  </div>
+
+  <div class="content">
+
+    <!-- QUICK ACTIONS -->
+    <div class="quick-grid">
+      <a href="#gameplay" class="quick-card">
+        <div class="quick-icon">🎮</div>
+        <div class="quick-title">Gameplay</div>
+        <div class="quick-desc">Rules, modes, timer questions</div>
+      </a>
+      <a href="#ranked" class="quick-card">
+        <div class="quick-icon">🏆</div>
+        <div class="quick-title">Ranked & progress</div>
+        <div class="quick-desc">RP, tiers, seasons, rewards</div>
+      </a>
+      <a href="#coins" class="quick-card">
+        <div class="quick-icon">🪙</div>
+        <div class="quick-title">Coins & shop</div>
+        <div class="quick-desc">Purchases, spending, balances</div>
+      </a>
+      <a href="#technical" class="quick-card">
+        <div class="quick-icon">⚙️</div>
+        <div class="quick-title">Technical issues</div>
+        <div class="quick-desc">Crashes, connectivity, bugs</div>
+      </a>
+    </div>
+
+    <!-- GAMEPLAY FAQ -->
+    <div class="faq-group" id="gameplay">
+      <p class="faq-group-title">Gameplay</p>
+
+      <details>
+        <summary>What are the rules?</summary>
+        <div class="faq-answer">
+          <p>Rock beats Scissors. Scissors beats Paper. Paper beats Rock. If both players choose the same gesture, the round is a draw — it will be replayed once. If the replay is also a draw, no point is awarded and the next round begins.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What's the difference between Casual and Ranked?</summary>
+        <div class="faq-answer">
+          <p><strong>Casual</strong> — you choose the format (Best of 5, 7, or 9) before the match starts. The timer is 10 seconds per round. Wins and losses only affect your coin earnings and Casual title — your ranked rating is not touched.</p>
+          <p><strong>Ranked</strong> — always Best of 9. The timer is 7 seconds per round. Every match affects your RP (ranked points) and your position on the ladder. Ranked unlocks after you've played 10 Casual games.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What happens if I don't choose in time?</summary>
+        <div class="faq-answer">
+          <p>If the timer runs out before you make a choice, you automatically lose that round. The app will not make a random choice for you — indecision counts as a forfeit.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What do the in-game badges mean?</summary>
+        <div class="faq-answer">
+          <p><strong>On Fire 🔥</strong> — you've won 3 rounds in a row within the current match. Your coin multiplier is active at 1.5x for the rest of the match.</p>
+          <p><strong>Unstoppable ⚡</strong> — you've won 5 rounds in a row within the current match. Your coin multiplier increases to 2x.</p>
+          <p>These badges reset when your opponent wins a round or the match ends.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What happens if my opponent disconnects?</summary>
+        <div class="faq-answer">
+          <p>If your opponent drops out mid-match, you automatically win. Coins are still awarded as a normal win. In Ranked, RP is awarded as normal. If you were the one who disconnected unintentionally (crash, network issue), a loss may be recorded — unfortunately the app cannot distinguish between a voluntary quit and a crash.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I play without an internet connection?</summary>
+        <div class="faq-answer">
+          <p>The tutorial and offline practice mode work without a connection. Live 1v1 multiplayer — both Casual and Ranked — requires an active internet connection and Game Center authentication.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- RANKED FAQ -->
+    <div class="faq-group" id="ranked">
+      <p class="faq-group-title">Ranked & progress</p>
+
+      <details>
+        <summary>How does the ranked system work?</summary>
+        <div class="faq-answer">
+          <p>There are 7 tiers: Bronze, Silver, Gold, Platinum, Diamond, Master, and Legend. Bronze through Diamond each have 3 divisions (III, II, I). Master and Legend have no divisions — they're a single continuous rating.</p>
+          <p>Win a Ranked match: +20 RP. Lose a Ranked match: −15 RP. Reach 100 RP in a division and you promote. Drop below 0 RP and you demote — except in Bronze III, where you can't drop below 0.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What are seasons and when do they reset?</summary>
+        <div class="faq-answer">
+          <p>A new season starts on the 1st of each month. At the end of a season, your rank resets to Bronze I. Before the reset, rewards are distributed based on your final rank — coins, exclusive cosmetics, and permanent season badges that appear on your profile.</p>
+          <p>Your highest-ever rank is always preserved on your profile even after resets.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What's the Casual title and how do I earn it?</summary>
+        <div class="faq-answer">
+          <p>The Casual title is a separate progression track based purely on how many Casual games you've played — wins and losses don't matter.</p>
+          <p>Titles go from <strong>Casual Rookie</strong> (0 games) up to <strong>Casual Legend</strong> (2,500 games). It's meant to be a long-term badge of dedication, not something you rush.</p>
+          <p>You can choose whether to display your Casual title on your profile — it's optional.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why is Ranked locked for me?</summary>
+        <div class="faq-answer">
+          <p>Ranked mode unlocks after you've completed 10 Casual games. This is intentional — it ensures every player entering Ranked has a basic feel for the game before their results affect the ladder.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>My rank went down even though I won. Why?</summary>
+        <div class="faq-answer">
+          <p>If your rank appears lower than you expect, check the following: seasonal resets happen on the 1st of each month, which return everyone to Bronze I. If a reset just happened, that explains it. Otherwise, check your match history — a recent loss may have caused a demotion you didn't notice.</p>
+          <p>If something seems genuinely wrong, please <a href="#contact-section">contact us</a> with your username and approximate date/time of the issue.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- COINS FAQ -->
+    <div class="faq-group" id="coins">
+      <p class="faq-group-title">Coins & shop</p>
+
+      <details>
+        <summary>How do I earn coins without paying?</summary>
+        <div class="faq-answer">
+          <p>You earn coins through normal play:</p>
+          <p>Casual win: +10 coins. Casual loss: +3 coins. Ranked win: +25 coins. Ranked loss: +5 coins. Daily login: +15 coins. Tutorial completion (one-time): +100 coins. Win streaks of 3 or more activate a multiplier.</p>
+          <p>A typical day of play earns around 50 coins without spending anything.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I made a purchase but didn't receive my coins.</summary>
+        <div class="faq-answer">
+          <p>First, try closing and reopening the app — purchases sometimes need a moment to process. If your coins still haven't appeared after a few minutes, use the <strong>Restore Purchases</strong> button found in the shop screen. This re-validates all your previous purchases with Apple and should credit any missing coins.</p>
+          <p>If the issue persists, <a href="#contact-section">contact us</a> with your Apple ID (email only, no password) and approximate purchase time and we'll investigate.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I get a refund on a coin purchase?</summary>
+        <div class="faq-answer">
+          <p>All purchases are processed by Apple. Refund requests must go through Apple directly at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>. We do not have the ability to issue refunds directly — Apple handles all payment processing.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do cosmetics affect gameplay?</summary>
+        <div class="faq-answer">
+          <p>No. Every item in the shop is purely cosmetic — themes, emoji packs, profile rings, backgrounds, and gesture styles. They change how the game looks and how your profile appears. They have zero effect on match outcomes, RP gains, or any gameplay mechanic.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I accidentally spent coins on something I didn't want.</summary>
+        <div class="faq-answer">
+          <p>Unfortunately coin purchases within the shop are final and cannot be reversed — coins are a virtual currency earned or purchased and spent in the game. We'd recommend double-checking your selection before confirming a shop purchase. If you believe a technical error caused the spend, contact us and we'll look into it.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- TECHNICAL FAQ -->
+    <div class="faq-group" id="technical">
+      <p class="faq-group-title">Technical issues</p>
+
+      <details>
+        <summary>The app keeps crashing. What should I do?</summary>
+        <div class="faq-answer">
+          <p>Try these steps in order:</p>
+          <p>1. Force-close the app and reopen it. 2. Restart your iPhone. 3. Check that you're on the latest version of the app via the App Store or TestFlight. 4. Check that your iOS version is 17 or later.</p>
+          <p>If it still crashes, please report it via TestFlight's shake-to-report feature, or <a href="#contact-section">contact us</a> with the screen you were on when it happened and what you were doing.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Matchmaking is taking a very long time.</summary>
+        <div class="faq-answer">
+          <p>Matchmaking speed depends on how many players are online at the same moment. During the beta, the player pool is smaller than it will be at launch, so wait times can be longer — especially in off-peak hours. The app will keep searching until it finds an opponent or you cancel.</p>
+          <p>If matchmaking consistently fails to connect even when you expect other players to be online, it may indicate a Game Center connectivity issue. Try signing out and back into Game Center in your iPhone's Settings.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Game Center won't authenticate.</summary>
+        <div class="faq-answer">
+          <p>Game Center is required for live multiplayer. If authentication is failing:</p>
+          <p>1. Open your iPhone's Settings → your Apple ID → Game Center and make sure it's turned on. 2. Check that you're signed into an Apple ID. 3. Check your internet connection. 4. Restart the app.</p>
+          <p>If the issue continues, try signing out and back into Game Center from Settings.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>My statistics or match history look wrong.</summary>
+        <div class="faq-answer">
+          <p>Statistics are calculated from your local match data and synced via iCloud. If your stats appear out of date after switching devices, give iCloud a minute to sync — it can sometimes take a few moments after launching the app on a new device.</p>
+          <p>If specific numbers look incorrect, <a href="#contact-section">contact us</a> with your username and what you're seeing vs. what you expected.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Notifications aren't working.</summary>
+        <div class="faq-answer">
+          <p>Check Settings → Notifications → Rock Paper Scissors and make sure notifications are allowed. Also check that you haven't disabled specific notification types within the app's own settings screen.</p>
+          <p>Some notifications (like friend challenge alerts) require both players to have notifications enabled and the app to be connected to Game Center.</p>
+        </div>
+      </details>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-card" id="contact-section">
+      <h2>Still need help?</h2>
+      <p>If your question isn't answered above, reach out directly. This app is independently built — you're talking to the developer, not a support department.</p>
+      <div class="contact-options">
+        <div class="contact-option">
+          <div class="contact-option-icon">✉️</div>
+          <div>
+            <div class="contact-option-title">Email</div>
+            <div class="contact-option-desc"><a href="mailto:[jouw email invullen]">[jouw email invullen]</a> — typically reply within 3–5 business days</div>
+          </div>
+        </div>
+        <div class="contact-option">
+          <div class="contact-option-icon">📱</div>
+          <div>
+            <div class="contact-option-title">TestFlight feedback</div>
+            <div class="contact-option-desc">Shake your iPhone while in the app to open the TestFlight feedback reporter. Attach a screenshot if possible — it helps a lot.</div>
+          </div>
+        </div>
+        <div class="contact-option">
+          <div class="contact-option-icon">💳</div>
+          <div>
+            <div class="contact-option-title">Purchase issues</div>
+            <div class="contact-option-desc">For refunds or billing problems, go to <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> — Apple handles all payment processing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-logo">Rock Paper Scissors</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
