@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Rock Paper Scissors</title>
+  <meta name="description" content="Privacy Policy for the Rock Paper Scissors iOS app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0A1A;
+      --surface:   #12122A;
+      --border:    rgba(255,255,255,0.07);
+      --purple:    #A78BFA;
+      --blue:      #60A5FA;
+      --pink:      #F472B6;
+      --text:      #E0E0FF;
+      --muted:     #6B6B8A;
+      --radius:    14px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text); }
+
+    /* HERO */
+    .page-hero {
+      padding: 64px 40px 48px;
+      max-width: 800px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .page-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 40px 100px;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+
+    .toc-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .toc a {
+      color: var(--purple);
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .toc a:hover { opacity: 0.75; }
+
+    .policy-section {
+      margin-bottom: 52px;
+      scroll-margin-top: 80px;
+    }
+
+    .policy-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-section p {
+      font-size: 0.92rem;
+      color: #B0B0CC;
+      margin-bottom: 14px;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-section ul li {
+      font-size: 0.92rem;
+      color: #B0B0CC;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .policy-section ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    .policy-section strong { color: var(--text); }
+
+    .highlight-box {
+      background: rgba(167,139,250,0.08);
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #C0C0E0;
+    }
+
+    .highlight-box strong {
+      color: var(--purple);
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      nav, .page-hero, .content, footer { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">RPS</a>
+    <a href="index.html" class="nav-back">← Back to home</a>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-eyebrow">Legal</p>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-meta">Last updated: June 2026 · Applies to Rock Paper Scissors for iOS</p>
+  </div>
+
+  <div class="content">
+
+    <div class="highlight-box">
+      <strong>The short version</strong>
+      We collect only what we need to run the game. We do not sell your data. We do not run ads. We do not track you across other apps or websites. What you do in Rock Paper Scissors stays in Rock Paper Scissors.
+    </div>
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#who">Who we are</a></li>
+        <li><a href="#what">What we collect</a></li>
+        <li><a href="#why">Why we collect it</a></li>
+        <li><a href="#gamecenter">Game Center & Apple</a></li>
+        <li><a href="#icloud">iCloud & data sync</a></li>
+        <li><a href="#purchases">In-app purchases</a></li>
+        <li><a href="#notifications">Push notifications</a></li>
+        <li><a href="#retention">Data retention</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#rights">Your rights</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <div class="policy-section" id="who">
+      <h2>1. Who we are</h2>
+      <p>Rock Paper Scissors is an independently developed iOS app. References to "we", "us", or "our" in this policy refer to the individual developer behind this app. This is not a company with a data department — it's one person who built a game and wants to be upfront about how it works.</p>
+      <p>If you have any questions about this policy, see the <a href="#contact" style="color: var(--purple);">Contact</a> section at the bottom.</p>
+    </div>
+
+    <div class="policy-section" id="what">
+      <h2>2. What we collect</h2>
+      <p>We collect the minimum necessary to make the game work:</p>
+      <ul>
+        <li><strong>Username</strong> — the name you choose during onboarding</li>
+        <li><strong>Selected avatar and country</strong> — for your profile display</li>
+        <li><strong>Game statistics</strong> — wins, losses, gesture history, reaction times, streaks</li>
+        <li><strong>Match history</strong> — your last 100 matches and their round-by-round detail</li>
+        <li><strong>Ranked rating and casual progress</strong> — your current tier, RP, division, and casual games played</li>
+        <li><strong>Coin balance and transaction history</strong> — earned and spent amounts with reason</li>
+        <li><strong>Achievement progress</strong> — which achievements you've unlocked and when</li>
+        <li><strong>Login streak data</strong> — last login date and cumulative login count</li>
+        <li><strong>Cosmetic preferences</strong> — active theme, emoji pack, profile ring</li>
+      </ul>
+      <p>We do <strong>not</strong> collect your real name, email address, phone number, device identifiers, IP address, or location beyond the country you voluntarily select.</p>
+    </div>
+
+    <div class="policy-section" id="why">
+      <h2>3. Why we collect it</h2>
+      <p>Every piece of data we collect has a single job:</p>
+      <ul>
+        <li><strong>Username & avatar</strong> — to show who you are to other players</li>
+        <li><strong>Game statistics</strong> — to power your profile, achievements, and leaderboard position</li>
+        <li><strong>Match history</strong> — so you can review your past matches</li>
+        <li><strong>Ranked rating</strong> — to place you in the correct tier and calculate seasonal rewards</li>
+        <li><strong>Coin balance</strong> — to manage what you've earned and spent in the shop</li>
+        <li><strong>Login streak</strong> — to calculate and award daily rewards</li>
+      </ul>
+      <p>We do not use any of this data for advertising, profiling, or sale to third parties.</p>
+    </div>
+
+    <div class="policy-section" id="gamecenter">
+      <h2>4. Game Center & Apple</h2>
+      <p>Rock Paper Scissors uses <strong>Apple Game Center</strong> for matchmaking, leaderboards, and achievements. When you authenticate with Game Center, Apple handles your identity — we only receive your Game Center display name and player ID.</p>
+      <p>Apple's own privacy policy governs what Game Center collects. You can review it at <a href="https://www.apple.com/privacy/" style="color: var(--purple);" target="_blank" rel="noopener">apple.com/privacy</a>.</p>
+      <p>Game Center is required to play online matches. You can use the app in offline/tutorial mode without signing in, but live multiplayer will be unavailable.</p>
+    </div>
+
+    <div class="policy-section" id="icloud">
+      <h2>5. iCloud & data sync</h2>
+      <p>Your game data (profile, stats, coins, match history) is stored locally on your device using SwiftData and optionally synced across your own Apple devices via <strong>CloudKit</strong> — Apple's private sync infrastructure.</p>
+      <p>This means your data lives in your own iCloud account. We do not have access to your iCloud data. Apple's CloudKit privacy practices apply — see Apple's privacy policy for details.</p>
+      <p>If you delete the app, your local data is removed from your device. iCloud sync data can be deleted by removing the app from all your devices and clearing the associated iCloud container in your device's iCloud settings.</p>
+    </div>
+
+    <div class="policy-section" id="purchases">
+      <h2>6. In-app purchases</h2>
+      <p>All purchases are handled entirely by <strong>Apple's App Store and StoreKit</strong>. We never see your payment details, card numbers, or billing information — Apple processes the transaction and simply confirms to us that a purchase was completed so we can credit your coin balance.</p>
+      <p>Purchases in this app are for virtual coins only. Coins can be spent on cosmetic items. All sales are final. If you have an issue with a purchase, contact <a href="https://reportaproblem.apple.com" style="color: var(--purple);" target="_blank" rel="noopener">Apple's Report a Problem</a>.</p>
+    </div>
+
+    <div class="policy-section" id="notifications">
+      <h2>7. Push notifications</h2>
+      <p>If you grant permission, we may send push notifications for:</p>
+      <ul>
+        <li>Friend challenges and match invitations</li>
+        <li>Daily login streak reminders</li>
+        <li>Seasonal end-of-season alerts</li>
+        <li>Leaderboard position changes</li>
+      </ul>
+      <p>You can withdraw permission at any time in your iPhone's Settings → Notifications → Rock Paper Scissors. You can also disable individual notification types within the app's settings screen.</p>
+    </div>
+
+    <div class="policy-section" id="retention">
+      <h2>8. Data retention</h2>
+      <p>Your data is retained for as long as you have the app installed. Match history is capped at your last 100 matches — older matches are automatically removed. Season records are kept permanently as part of your profile history.</p>
+      <p>Deleting the app removes all local data. iCloud data can be cleared separately through your device's iCloud settings.</p>
+    </div>
+
+    <div class="policy-section" id="children">
+      <h2>9. Children's privacy</h2>
+      <p>Rock Paper Scissors is rated 4+ on the App Store and does not contain adult content. However, the app is a competitive multiplayer game that involves real-time interaction with strangers, which may not be appropriate for very young children without parental guidance.</p>
+      <p>We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided information through the app, please contact us and we will take steps to remove it.</p>
+    </div>
+
+    <div class="policy-section" id="rights">
+      <h2>10. Your rights</h2>
+      <p>Depending on where you live, you may have rights regarding your personal data, including the right to access, correct, or delete it. Because almost all data in this app lives on your own device and in your own iCloud account, you already have direct control over most of it.</p>
+      <p>For anything you can't manage yourself — such as your Game Center leaderboard entry or achievement records — contact us at the address below and we'll do what we can.</p>
+      <p>If you're in the EU, you have additional rights under the GDPR. We process only the minimum data necessary (data minimisation principle) and do so to provide you with the service you requested (contractual basis).</p>
+    </div>
+
+    <div class="policy-section" id="changes">
+      <h2>11. Changes to this policy</h2>
+      <p>If we make meaningful changes to this privacy policy, we'll update the date at the top of this page and, where appropriate, notify you through the app. Continuing to use the app after a change constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <div class="policy-section" id="contact">
+      <h2>12. Contact</h2>
+      <p>Questions, requests, or concerns about your privacy? Reach out:</p>
+      <div class="highlight-box">
+        <strong>Contact</strong>
+        Email: <strong style="color: var(--text);">[jouw email invullen]</strong><br>
+        Response time: typically within 3–5 business days
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-logo">Rock Paper Scissors</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
